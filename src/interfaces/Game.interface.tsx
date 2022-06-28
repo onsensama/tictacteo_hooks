@@ -1,3 +1,3 @@
-export interface IHistoryBoard {
+export interface HistoryBoard {
     squares: string[]
   }

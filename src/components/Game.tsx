@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { IHistoryBoard } from "../interfaces";
+import { HistoryBoard } from "../interfaces";
 import Board from "./Board";
 
 const Game = (): JSX.Element => {
 
-  const [historyBoard, setHistoryBoard] = useState<IHistoryBoard[]>([{ squares: Array(9).fill('') }]);
+  const [historyBoard, setHistoryBoard] = useState<HistoryBoard[]>([{ squares: Array(9).fill('') }]);
   const [stepNumber, setStepNumber] = useState<number>(0)
   const [xIsNext, setXisNext] = useState<boolean>(true);
 
   const handleClick = (i: number) => {
-      const copyHistoryBoard: IHistoryBoard[] = historyBoard.slice(0, stepNumber + 1);
-      const currentBoard: IHistoryBoard = copyHistoryBoard[copyHistoryBoard.length - 1];
+      const copyHistoryBoard: HistoryBoard[] = historyBoard.slice(0, stepNumber + 1);
+      const currentBoard: HistoryBoard = copyHistoryBoard[copyHistoryBoard.length - 1];
       const squares: string[] = currentBoard.squares.slice();
     if (calculateWinner(squares) || squares[i]) return;
     squares[i] = xIsNext ? 'X' : 'O';
@@ -25,7 +25,7 @@ const Game = (): JSX.Element => {
       setXisNext((step % 2) === 0);
   }
 
-  const currentBoard: IHistoryBoard = historyBoard[stepNumber];
+  const currentBoard: HistoryBoard = historyBoard[stepNumber];
   const winner = calculateWinner(currentBoard.squares);
 
   const moves = historyBoard.map((step, move) => {
