@@ -1,5 +1,3 @@
-export interface GameState {
-    history: { squares: string[] }[],
-    xIsNext: boolean,
-    stepNumber: number
+export interface IHistoryBoard {
+    squares: string[]
   }

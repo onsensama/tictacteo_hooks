@@ -1,6 +1,4 @@
-import React from 'react';
 import { SquareProps } from '../interfaces';
-
 
 function Square({ onClick, value }: SquareProps): JSX.Element {
   return (
